@@ -1,0 +1,47 @@
+{
+	"name": "natlibfi-developer-test",
+	"description": "natlib-developer-test",
+	"version": "1.0.0",
+	"main": "./dist/index.js",
+	"engines": {
+		"node": ">=16"
+	},
+	"scripts": {
+		"lint": "eslint src",
+		"lint:dev": "eslint --fix src",
+		"test:base": "cross-env NODE_ENV=test mocha --require @babel/register",
+		"test": "npm run test:base -- src/*.spec.js",
+		"test:dev": "npm run lint:dev && npm run test:base -- src/*.spec.js",
+		"build": "babel src --source-maps --copy-files --delete-dir-on-start --out-dir=dist"
+	},
+	"dependencies": {
+		"@natlibfi/marc-record": "^7.0.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.17.6",
+		"@babel/core": "^7.17.5",
+		"@babel/eslint-parser": "^7.17.0",
+		"@babel/node": "^7.16.8",
+		"@babel/preset-env": "^7.16.11",
+		"@babel/register": "^7.17.0",
+		"@natlibfi/eslint-config-melinda-backend": "^2.0.0",
+		"@natlibfi/fixura": "^2.2.1",
+		"chai": "^4.3.6",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.10.0",
+		"mocha": "^9.2.1"
+	},
+	"eslintConfig": {
+		"extends": "@natlibfi/melinda-backend"
+	},
+	"babel": {
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"targets": "maintained node versions"
+				}
+			]
+		]
+	}
+}
