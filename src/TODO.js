@@ -1,4 +1,4 @@
-function yourFunction(rec) {
+function yourFunction(rec, opt) {
     let rv = [];
     var foo = rec.fields;
     foo.forEach(function(entry) {
@@ -21,7 +21,7 @@ function yourFunction(rec) {
     return rv;
 }
 
-function yourFunction2(rec) {
+function yourFunction2(rec, opt) {
     let rv = [];
     var f = rec.fields;
     //f.forEach(function (entry) {
@@ -34,7 +34,7 @@ function yourFunction2(rec) {
             continue;
         }
         for (const e2 of subf) {
-            rv.push(e2["code"]+";"+e2["value"]);
+            rv.push(e2["code"]+opt+e2["value"]);
         }
     }
     return rv;

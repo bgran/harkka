@@ -13,7 +13,7 @@ describe('index', () => {
     const recordData = getFixture('01', 'record.json');
     const record = new MarcRecord(recordData);
     const expectedResults = getFixture('01', 'expectedResults.json');
-    const result = yourFunction(record);
+    const result = yourFunction(record, undefined);
 
     expect(result).to.eql(expectedResults);
   });
@@ -23,7 +23,7 @@ describe('index', () => {
         const recordData = getFixture('02', 'record.json');
         const record = new MarcRecord(recordData);
         const expectedResults = getFixture('02', 'expectedResults.json');
-        const result = yourFunction2(record);
+        const result = yourFunction2(record, ";");
 
         expect(result).to.eql(expectedResults);
   });
